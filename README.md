@@ -1,8 +1,8 @@
-# Item Tracker
+#Item Tracker
 
 This is a little project for the lecture "Scaleable Webarchitectures".
 
-## Intro
+##Intro
 
 Your goal is to create a system that is used to track the inventory of a larger corporation. They run many offices in multiple locations and want to know how many pencils, staplers, computers, etc. they have in each of these locations.
 
