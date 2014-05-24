@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
 require 'grape'
 require 'faraday'
+require 'json'
 
 module Reports
 	class ReportCreator
@@ -25,6 +26,21 @@ module Reports
 			response = @conn.get @@user_url
 			response.status == 200
 		end
+
+		def build_report
+			locations = self.get_locations
+			items = self.get_items
+		end
+
+		def get_locations
+			reponse = @conn.get @@locations_url
+			JSON.parse reponse.body
+		end
+
+		def get_items
+			reponse = @conn.get @@items_url
+			JSON.parse reponse.body
+		end
 	end
 
 	class API < Grape::API
@@ -41,7 +57,7 @@ module Reports
 
 			#params: by-location
 		  get do
-		    "report will follow!"
+		    report_creator.build_report
 		  end
 		end
 end
