@@ -1,5 +1,4 @@
 #!/usr/bin/ruby
-require 'grape'
 
 module UserManagement
 	class API < Grape::API
