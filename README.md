@@ -15,8 +15,9 @@ The application comes in 4 services:
 
 
 ##Usage
-At first you have to start all systems.
+At first you have to start all systems. Therefore you have two possibilities:
 Go in each folder of the repository and start them with the rackup command.
+Or you can use <a href="https://github.com/ddollar/foreman">foreman</a> to start all applications at once. Just go to the root directory of the project and start all apps with the command ``foreman start`` in your shell.
 
 Each system is running on a different port:
 
