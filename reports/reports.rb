@@ -28,8 +28,16 @@ module Reports
 		end
 
 		def build_report
+			report = []
+			entry = {}
 			locations = self.get_locations
 			items = self.get_items
+
+			locations.each do |location|
+				entry = location
+				entry[:items] = items.select { |item| item['location'] == location['id'] }
+				report << entry
+			end
 		end
 
 		def get_locations
@@ -49,14 +57,14 @@ module Reports
 		report_creator = ReportCreator.new
 		
 		resource :reports
+
 			http_basic do |username, password|
 				valid_auth = report_creator.has_valid_auth_token? username, password
 				error!('NO report', 403) if !valid_auth
 				true
 			end
-
-			#params: by-location
-		  get do
+			
+		  get 'by-location' do
 		    report_creator.build_report
 		  end
 		end
