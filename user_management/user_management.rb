@@ -12,8 +12,6 @@ module UserManagement
 		
 		resource :user do
 			http_basic do |username, password|
-				p username
-				p password
 				error!('Forbidden', 403) if not (USERS.include?(username) && USERS[username] == password)
 				true
     	end
