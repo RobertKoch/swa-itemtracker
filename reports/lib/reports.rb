@@ -1,7 +1,4 @@
 #!/usr/bin/ruby
-require 'grape'
-require 'faraday'
-require 'json'
 
 module Reports
 	class ReportCreator
@@ -11,6 +8,8 @@ module Reports
 		
 		def initialize
 			@conn = setup_connection
+			@auth_user = nil
+			@auth_pwd = nil
 		end
 
 		def setup_connection
@@ -21,10 +20,17 @@ module Reports
   		end
 		end
 
-		def has_valid_auth_token?(username, password)
+		def check_and_set_auth(username, password)
 			@conn.basic_auth username, password
 			response = @conn.get @@user_url
-			response.status == 200
+			
+			if response.status == 200
+				@auth_user = username
+				@auth_pwd = password
+				true
+			else
+				false
+			end
 		end
 
 		def build_report
@@ -41,11 +47,13 @@ module Reports
 		end
 
 		def get_locations
+			@conn.basic_auth @auth_user, @auth_pwd
 			reponse = @conn.get @@locations_url
 			JSON.parse reponse.body
 		end
 
 		def get_items
+			@conn.basic_auth @auth_user, @auth_pwd
 			reponse = @conn.get @@items_url
 			JSON.parse reponse.body
 		end
@@ -59,7 +67,7 @@ module Reports
 		resource :reports
 
 			http_basic do |username, password|
-				valid_auth = report_creator.has_valid_auth_token? username, password
+				valid_auth = report_creator.check_and_set_auth username, password
 				error!('NO report', 403) if !valid_auth
 				true
 			end

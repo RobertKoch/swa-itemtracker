@@ -43,7 +43,19 @@ module LocationManagement
 		format :json
 		
 		location_manager = LocationManager.new
-		
+	
+		http_basic do |username, password|
+			conn = Faraday.new(:url => 'http://localhost:9191')
+	    conn.basic_auth username, password
+  		response = conn.get '/user'
+  		
+  		if response.status != 200
+  			error! 'Forbidden', 403
+  		else
+  			true
+  		end
+    end
+
 		desc "Show all locations"
 	  get :locations do
 	    location_manager.all

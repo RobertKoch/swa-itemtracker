@@ -4,6 +4,7 @@ gem 'rack', '~> 1.5.2'
 
 gem 'grape'
 gem 'json'
+gem 'faraday'
 
 # Testing
 gem 'rack-test', '~> 0.6.2'
