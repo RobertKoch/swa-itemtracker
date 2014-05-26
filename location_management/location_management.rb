@@ -22,7 +22,6 @@ module LocationManagement
 				:name => name,
 				:address => address,
 				:id =>  @next_id
-
 			}
 
 			@locations << location
