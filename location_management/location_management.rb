@@ -66,7 +66,6 @@ module LocationManagement
 	  	requires :id, type: Integer, desc: "Location id"
 	  end
 	  delete 'locations/:id' do
-	  	#find returns an array => search for idx 0
 	  	error!('not found!', 404) if not location_manager.delete(params[:id])
 	  end
 	end
