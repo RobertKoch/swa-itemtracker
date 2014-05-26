@@ -24,13 +24,13 @@ Each system is running on a different port:
 System    | Port
 --------- | ----
 users     | 9191
-reports   | 9292
+items     | 9292
 locations | 9393
-items     | 9494
+reports   | 9494
 
 To use the Reporting Tool only open the following URL in your browser:
 
-``http://localhost:9292/reports/by-location``
+``http://localhost:9494/reports/by-location``
 
 This will create a report with all companies and their inventory.
 The following users gain access to it:
