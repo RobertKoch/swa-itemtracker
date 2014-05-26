@@ -1,4 +1,6 @@
 #\ -p 9292
-require './item_tracking'
+Bundler.require
+
+require './lib/item_tracking'
 
 run ItemTracking::API

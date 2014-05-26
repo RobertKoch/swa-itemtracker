@@ -1,6 +1,4 @@
 #!/usr/bin/ruby
-require 'grape'
-require 'json'
 
 module LocationManagement
 	class LocationManager

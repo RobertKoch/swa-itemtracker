@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'rack', '~> 1.5.2'
+
+gem 'grape'
+gem 'json'
+
+# Testing
+gem 'rack-test', '~> 0.6.2'
+gem 'rake', '~> 10.1.1'
+gem 'rspec', '~> 2.14.1'

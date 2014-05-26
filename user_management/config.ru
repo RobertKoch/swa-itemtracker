@@ -1,4 +1,6 @@
 #\ -p 9191
-require './user_management'
+Bundler.require
+
+require './lib/user_management'
 
 run UserManagement::API

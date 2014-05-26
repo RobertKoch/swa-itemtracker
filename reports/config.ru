@@ -1,4 +1,6 @@
 #\ -p 9494
-require './reports'
+Bundler.require
+
+require './lib/reports'
 
 run Reports::API
