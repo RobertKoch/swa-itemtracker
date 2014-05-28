@@ -16,7 +16,7 @@ The application comes in 4 services:
 
 ##Usage
 At first you have to start all systems. Therefore you have two possibilities:
-Go in each folder of the repository and start them with the rackup command.
+Go in each folder of the repository and start them with the command ``bundle exec rackup``.
 Or you can use <a href="https://github.com/ddollar/foreman">foreman</a> to start all applications at once. Just go to the root directory of the project and start all apps with the command ``foreman start`` in your shell.
 
 Each system is running on a different port:
@@ -94,3 +94,9 @@ method | url           | HTTP status code
 GET    | locations     | success: 201, fail: 403
 POST   | location      | success: 200, fail: 403
 DELETE | location/:id  | success: 200, fail: 403, 404
+
+
+##Testing
+
+Each application is tested. Requests to identify users are stubed using Webmock.
+To run the tests go into a application directory and start them with ``bundle exec rake``
