@@ -7,6 +7,7 @@ gem 'json'
 gem 'faraday'
 
 # Testing
-gem 'rack-test', '~> 0.6.2'
-gem 'rake', '~> 10.1.1'
-gem 'rspec', '~> 2.14.1'
+gem 'rack-test', '~> 0.6.2', :group => :test
+gem 'rake', '~> 10.1.1', :group => :test
+gem 'rspec', '~> 2.14.1', :group => :test
+gem 'webmock', :group => :test
