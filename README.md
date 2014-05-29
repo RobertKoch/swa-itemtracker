@@ -28,6 +28,9 @@ items     | 9292
 locations | 9393
 reports   | 9494
 
+You can change de ports in the config.ru files of the applications.
+Just modify the following line with your needed port: ``#\ -p YOUR-PORT``
+
 To use the Reporting Tool only open the following URL in your browser:
 
 ``http://localhost:9494/reports/by-location``
